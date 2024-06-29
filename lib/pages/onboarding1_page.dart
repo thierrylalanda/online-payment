@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_payment/components/base_button_widget.dart';
 import 'package:online_payment/utils/app_colors.dart';
 
 class Onboarding1Page extends StatelessWidget {
@@ -77,28 +78,13 @@ class Onboarding1Page extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    // Navigator.popAndPushNamed(context, '/onboarding2'),
-                    controller.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeOut);
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(12),
-                    width: double.infinity,
-                    child: Center(
-                        child: Text('NEXT',
-                            style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold))),
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                )
+                BaseButtonWidget(
+                    onTap: () {
+                      controller.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeOut);
+                    },
+                    text: "NEXT"),
               ],
             ),
           ),

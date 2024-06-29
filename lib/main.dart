@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:online_payment/pages/add_card_page.dart';
+import 'package:online_payment/pages/all_card_page.dart';
+import 'package:online_payment/pages/edit_profil_page.dart';
 import 'package:online_payment/pages/home_page.dart';
 import 'package:online_payment/pages/onboarding1_page.dart';
 import 'package:online_payment/pages/onboarding2_page.dart';
 import 'package:online_payment/pages/onboarding3_page.dart';
 import 'package:online_payment/pages/onboarding_page.dart';
+import 'package:online_payment/pages/profil_page.dart';
 import 'package:online_payment/pages/sign_in_page.dart';
 import 'package:online_payment/pages/sign_up_page.dart';
 import 'package:online_payment/utils/app_colors.dart';
@@ -29,6 +33,10 @@ class MyApp extends StatelessWidget {
         '/signin': (context) => const SignInPage(),
         '/signup': (context) => const SignUpPage(),
         '/home': (context) => const HomePage(),
+        '/profil': (context) => const ProfilPage(),
+        '/editprofil': (context) => const EditProfilPage(),
+        '/allcard': (context) => const AllCardPage(),
+        '/addcard': (context) => const AddCardPage(),
       },
     );
   }
