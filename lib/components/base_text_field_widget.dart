@@ -9,12 +9,14 @@ class BaseTextFieldWidget extends StatelessWidget {
       this.keyboardType = TextInputType.text,
       this.value,
       this.controller,
+      this.obscureText = false,
       this.suffixIcon});
   final String label;
   final String? hintText;
   final String? value;
   final IconData? icon;
   final IconData? suffixIcon;
+  final bool obscureText;
   final TextInputType? keyboardType;
   TextEditingController? controller;
   @override
@@ -34,6 +36,7 @@ class BaseTextFieldWidget extends StatelessWidget {
         TextField(
           keyboardType: keyboardType,
           controller: controller,
+          obscureText: obscureText,
           decoration: InputDecoration(
             icon: icon != null
                 ? Icon(

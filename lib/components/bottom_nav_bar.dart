@@ -8,7 +8,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 25),
+      margin: EdgeInsets.only(bottom: 30),
       child: GNav(
         onTabChange: onTabChange,
         color: Colors.grey[400],
@@ -17,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
         tabBackgroundColor:
             Color(0xFF0066FF).withOpacity(0.2), // selected tab background color
         padding: EdgeInsets.symmetric(
-            horizontal: 20, vertical: 5), // navigation bar padding
+            horizontal: 20, vertical: 10), // navigation bar padding
         gap: 5,
         style: GnavStyle.google,
         curve: Curves.easeIn,

@@ -36,11 +36,14 @@ class Dashboard extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey[300],
-              child: Icon(
-                Icons.search,
-                color: Colors.black45,
+            child: GestureDetector(
+              onTap: () => Navigator.pushNamed(context, "/search"),
+              child: CircleAvatar(
+                backgroundColor: Colors.grey[300],
+                child: Icon(
+                  Icons.search,
+                  color: Colors.black45,
+                ),
               ),
             ),
           )
@@ -62,9 +65,17 @@ class Dashboard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _circularWidget(title: "Sent", icon: Icons.arrow_upward),
                     _circularWidget(
-                        title: "Receive", icon: Icons.arrow_downward),
+                      title: "Sent",
+                      icon: Icons.arrow_upward,
+                      onTap: () => Navigator.pushNamed(context, "/sendmoney"),
+                    ),
+                    _circularWidget(
+                      title: "Receive",
+                      icon: Icons.arrow_downward,
+                      onTap: () =>
+                          Navigator.pushNamed(context, "/requestmoney"),
+                    ),
                     _circularWidget(title: "Load", icon: Icons.attach_money),
                     _circularWidget(title: "Topup", icon: Icons.cloud_upload),
                   ],
@@ -80,12 +91,15 @@ class Dashboard extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                     ),
-                    Text(
-                      "Seen All",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.primary),
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, "/history"),
+                      child: Text(
+                        "Seen All",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.primary),
+                      ),
                     ),
                   ],
                 ),
@@ -127,16 +141,20 @@ class Dashboard extends StatelessWidget {
     );
   }
 
-  Widget _circularWidget({required String title, required IconData icon}) {
+  Widget _circularWidget(
+      {required String title, required IconData icon, Function()? onTap}) {
     return Column(
       children: [
-        CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.grey[300],
-          child: Icon(
-            icon,
-            size: 25,
-            color: Colors.black87,
+        GestureDetector(
+          onTap: onTap,
+          child: CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.grey[300],
+            child: Icon(
+              icon,
+              size: 25,
+              color: Colors.black87,
+            ),
           ),
         ),
         SizedBox(

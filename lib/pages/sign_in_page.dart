@@ -61,8 +61,7 @@ class SignInPage extends StatelessWidget {
                 height: 50,
               ),
               BaseButtonWidget(
-                  onTap: () =>
-                      Navigator.popAndPushNamed(context, '/onboarding3'),
+                  onTap: () => Navigator.popAndPushNamed(context, '/home'),
                   text: "Sign In"),
               const SizedBox(
                 height: 20,

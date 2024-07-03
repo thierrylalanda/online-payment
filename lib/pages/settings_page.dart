@@ -52,6 +52,7 @@ class SettingsPage extends StatelessWidget {
             CustomListTitle(
                 title: "Language",
                 subtitle: "English",
+                onTap: () => Navigator.pushNamed(context, "/language"),
                 icon: Icons.arrow_forward_ios),
             CustomListTitle(
               title: "My Profil",
@@ -67,9 +68,15 @@ class SettingsPage extends StatelessWidget {
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w200),
             ),
             CustomListTitle(
-                title: "Change Password", icon: Icons.arrow_forward_ios),
+              title: "Change Password",
+              icon: Icons.arrow_forward_ios,
+              onTap: () => Navigator.pushNamed(context, "/changepassword"),
+            ),
             CustomListTitle(
-                title: "Privacy Policy", icon: Icons.arrow_forward_ios),
+              title: "Privacy Policy",
+              icon: Icons.arrow_forward_ios,
+              onTap: () => Navigator.pushNamed(context, "/termcondition"),
+            ),
             const Text(
               "Choose what data you share with us",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w200),
