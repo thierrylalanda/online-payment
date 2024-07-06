@@ -3,9 +3,15 @@ import 'package:online_payment/components/cart_widget.dart';
 import 'package:online_payment/components/transaction_item.dart';
 import 'package:online_payment/utils/app_colors.dart';
 
-class CardPage extends StatelessWidget {
+class CardPage extends StatefulWidget {
   const CardPage({super.key});
 
+  @override
+  State<CardPage> createState() => _CardPageState();
+}
+
+class _CardPageState extends State<CardPage> {
+  double maxValue = 100;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,12 +105,18 @@ class CardPage extends StatelessWidget {
                       height: 1,
                     ),
                     Slider.adaptive(
-                      value: 0.5,
-                      onChanged: null,
+                      value: maxValue,
+                      onChanged: (value) {
+                        setState(() {
+                          maxValue = value.round().ceilToDouble();
+                        });
+                      },
+                      min: 100,
+                      max: 10000,
                       activeColor: AppColors.primary,
                       secondaryActiveColor: AppColors.primary,
-                      inactiveColor: AppColors.primary,
-                      divisions: 5,
+                      inactiveColor: Colors.grey,
+                      divisions: 100,
                       thumbColor: AppColors.primary,
                     ),
                     SizedBox(
@@ -121,7 +133,7 @@ class CardPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "\$4,600",
+                          "\$$maxValue",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 12,

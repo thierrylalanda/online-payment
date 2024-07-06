@@ -15,8 +15,8 @@ class Dashboard extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.only(left: 15),
           child: CircleAvatar(
-            backgroundColor: Colors.grey[300],
-            child: Image.asset("assets/avatar.jpeg"),
+            //backgroundColor: Colors.grey[300],
+            backgroundImage: AssetImage("assets/avatar.jpeg"),
           ),
         ),
         centerTitle: false,

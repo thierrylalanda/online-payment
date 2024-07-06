@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:online_payment/components/custom_list_title.dart';
+import 'package:online_payment/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  var activeBiometrie = false;
+  @override
+  void initState() {
+    setState(() {
+      activeBiometrie = false;
+    });
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +102,27 @@ class SettingsPage extends StatelessWidget {
               height: 20,
             ),
             CustomListTitle(
-                title: "Biometric",
-                icon: Icons.arrow_forward_ios,
-                trealing: Switch.adaptive(value: false, onChanged: null)),
+              title: "Biometric",
+              icon: Icons.arrow_forward_ios,
+              trealing: Switch.adaptive(
+                  value: activeBiometrie,
+                  onChanged: (value) {
+                    setState(() {
+                      activeBiometrie = value;
+                    });
+                  }),
+            ),
+            CustomListTitle(
+              title: "Dark mode",
+              icon: Icons.arrow_forward_ios,
+              trealing: Switch.adaptive(
+                value: Provider.of<ThemeProvider>(context).isDarkMode,
+                onChanged: (value) {
+                  Provider.of<ThemeProvider>(context, listen: false)
+                      .toggleTheme();
+                },
+              ),
+            ),
           ],
         ),
       ),

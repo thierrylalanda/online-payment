@@ -5,9 +5,6 @@ import 'package:online_payment/pages/change_password_page.dart';
 import 'package:online_payment/pages/edit_profil_page.dart';
 import 'package:online_payment/pages/home_page.dart';
 import 'package:online_payment/pages/language_page.dart';
-import 'package:online_payment/pages/onboarding1_page.dart';
-import 'package:online_payment/pages/onboarding2_page.dart';
-import 'package:online_payment/pages/onboarding3_page.dart';
 import 'package:online_payment/pages/onboarding_page.dart';
 import 'package:online_payment/pages/profil_page.dart';
 import 'package:online_payment/pages/request_money_page.dart';
@@ -17,11 +14,20 @@ import 'package:online_payment/pages/sign_in_page.dart';
 import 'package:online_payment/pages/sign_up_page.dart';
 import 'package:online_payment/pages/term_condition_page.dart';
 import 'package:online_payment/pages/transaction_history_page.dart';
+import 'package:online_payment/theme/theme_provider.dart';
 import 'package:online_payment/utils/app_colors.dart';
-import 'package:online_payment/utils/theme_data.dart';
+import 'package:online_payment/theme/theme_data.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => ThemeProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -34,7 +40,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       darkTheme: darkTheme,
-      theme: lightTheme,
+      theme: Provider.of<ThemeProvider>(context).themeMode,
       home: const OnboardingPage(),
       routes: {
         '/signin': (context) => const SignInPage(),

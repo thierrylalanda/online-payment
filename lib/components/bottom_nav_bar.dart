@@ -8,7 +8,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
+      margin: EdgeInsets.only(bottom: 10, top: 10),
       child: GNav(
         onTabChange: onTabChange,
         color: Colors.grey[400],

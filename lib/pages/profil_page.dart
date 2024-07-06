@@ -53,9 +53,9 @@ class ProfilPage extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  radius: 30,
+                  radius: 40,
+                  backgroundImage: AssetImage("assets/avatar.jpeg"),
                   backgroundColor: Colors.grey[300],
-                  child: Image.asset("assets/avatar.jpeg"),
                 ),
                 SizedBox(
                   width: 10,

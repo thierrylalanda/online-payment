@@ -41,9 +41,9 @@ class EditProfilPage extends StatelessWidget {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 50,
+                      radius: 60,
+                      backgroundImage: AssetImage("assets/avatar.jpeg"),
                       backgroundColor: Colors.grey[300],
-                      child: Image.asset("assets/avatar.jpeg"),
                     ),
                     SizedBox(
                       width: 10,
